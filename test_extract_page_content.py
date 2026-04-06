@@ -1,0 +1,24 @@
+import unittest 
+from functions.get_heading_from_html import get_first_paragraph_from_html
+
+class TestGetHeadingFrom(unittest.TestCase):
+    def test_get_heading_from_html_basic(self):
+        input_body = '<html><body><h1>Test Title</h1></body></html>'
+        actual = get_heading_from_html(input_body)
+        expected = "Test Title"
+        self.assertEqual(actual, expected)
+
+    def test_get_first_paragraph_from_html_main_priority(self):
+        input_body = '''<html><body>
+<p>Outside paragraph.</p>
+<main>
+    <p>Main paragraph.</p>
+</main>
+</body></html>'''
+        actual = get_first_paragraph_from_html(input_body)
+        expected = "Main paragraph."
+        self.assertEqual(actual, expected)
+
+
+if __name__ == '__main__':
+    unittest.main()
