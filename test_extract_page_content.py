@@ -1,5 +1,6 @@
 import unittest 
-from functions.get_heading_from_html import get_first_paragraph_from_html
+from functions.get_heading_from_html import get_heading_from_html
+from functions.get_first_paragraph_from_html import get_first_paragraph_from_html
 
 class TestGetHeadingFrom(unittest.TestCase):
     def test_get_heading_from_html_basic(self):

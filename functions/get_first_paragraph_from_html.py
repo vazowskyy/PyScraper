@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 
 
 def get_first_paragraph_from_html(html):
+    soup = BeautifulSoup(html, 'html.parser')
+    
     p = soup.main.p 
 
     if p:

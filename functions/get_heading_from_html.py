@@ -5,7 +5,7 @@ def get_heading_from_html(html):
     soup = BeautifulSoup(html, 'html.parser')
 
     h1 = soup.find('h1')
-    h1 = soup.h1.extract_text() if h1 else ""
+    h1 = soup.h1.get_text() if h1 else ""
     if h1:
         return h1 
 
