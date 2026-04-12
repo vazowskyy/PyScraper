@@ -20,6 +20,8 @@ class TestGetHeadingFrom(unittest.TestCase):
         expected = "Main paragraph."
         self.assertEqual(actual, expected)
 
+#TODO Add additional cases for each function 
+#
 
 if __name__ == '__main__':
     unittest.main()
