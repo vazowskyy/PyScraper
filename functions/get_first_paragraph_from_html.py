@@ -1,14 +1,16 @@
 from bs4 import BeautifulSoup
 
-
 def get_first_paragraph_from_html(html):
     soup = BeautifulSoup(html, 'html.parser')
-    
-    p = soup.main.p 
+
+    main = soup.find('main')
+
+    if main:
+        p = main.find('p')
+    else:
+        p = soup.find('p')
 
     if p:
-        p = p.get_text()
-    else: 
-        p = soup.p.extract_text if soup.p else ""
-    return p
+        return p.get_text(strip=True)
     
+    return ""

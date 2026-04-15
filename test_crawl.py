@@ -39,5 +39,11 @@ class TestCrawl(unittest.TestCase):
         expected = "google.com/blog/path/test"
         self.assertEqual(actual, expected)
 
+    def test_normalize_url(self):
+        input_url = "http://test.pl"
+        actual = normalize_url(input_url)
+        expected = "test.pl"
+        self.assertEqual(actual, expected)
+
 if __name__ == "__main__":
     unittest.main()

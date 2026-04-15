@@ -9,6 +9,17 @@ class TestGetHeadingFrom(unittest.TestCase):
         expected = "Test Title"
         self.assertEqual(actual, expected)
 
+    def test_get_first_paragraph_from_html(self):
+        input_body = '''<html><body>
+<p>Outside paragraph.</p>
+<p>Paragraph without main!</p>
+</body></html>'''
+        actual = get_first_paragraph_from_html(input_body)
+        expected = "Outside paragraph."
+        self.assertEqual(actual, expected)
+
+        
+
     def test_get_first_paragraph_from_html_main_priority(self):
         input_body = '''<html><body>
 <p>Outside paragraph.</p>
@@ -20,8 +31,13 @@ class TestGetHeadingFrom(unittest.TestCase):
         expected = "Main paragraph."
         self.assertEqual(actual, expected)
 
-#TODO Add additional cases for each function 
-#
+    def test_get_no_paragraph(self):
+        input_body = '''<html><body>Content</body></html>'''
+        actual = get_first_paragraph_from_html(input_body)
+        expected = ""
+        self.assertEqual(actual, expected)
+
+
 
 if __name__ == '__main__':
     unittest.main()
